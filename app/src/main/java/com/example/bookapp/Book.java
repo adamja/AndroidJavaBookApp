@@ -4,12 +4,12 @@ public class Book {
     private int id;
     private String name;
     private String author;
-    private String pages;
+    private int pages;
     private String imageUrl;
     private String shortDesc;
     private String longDesc;
 
-    public Book(int id, String name, String author, String pages, String imageUrl, String shortDesc, String longDesc) {
+    public Book(int id, String name, String author, int pages, String imageUrl, String shortDesc, String longDesc) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -56,11 +56,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getPages() {
+    public int getPages() {
         return pages;
     }
 
-    public void setPages(String pages) {
+    public void setPages(int pages) {
         this.pages = pages;
     }
 
