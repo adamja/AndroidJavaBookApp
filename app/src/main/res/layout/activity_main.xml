@@ -10,7 +10,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/lemon"
         android:text="Hello World!"
         android:textSize="18sp"
@@ -22,9 +22,9 @@
 
     <Button
         android:id="@+id/btnAllBooks"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="See All Books"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
@@ -33,7 +33,7 @@
 
     <Button
         android:id="@+id/btnCurrentlyReading"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Currently Reading Books"
@@ -44,7 +44,7 @@
 
     <Button
         android:id="@+id/btnAlreadyRead"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Already Read Books"
@@ -55,7 +55,7 @@
 
     <Button
         android:id="@+id/btnWishlist"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Your Wishlist"
@@ -66,7 +66,7 @@
 
     <Button
         android:id="@+id/btnFavourite"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="See Your Favourites"
@@ -77,7 +77,7 @@
 
     <Button
         android:id="@+id/btnAbout"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="About"
@@ -90,11 +90,11 @@
         android:id="@+id/imgLogo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/bubbles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@mipmap/bubbles" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtLicence"
