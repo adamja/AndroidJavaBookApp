@@ -35,6 +35,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnCurrentlyReading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CurrentlyReadingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnWishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WantToReadActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFavourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FavouriteActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // Init the utils class when the app first starts up
         Utils.getInstance();
     }
