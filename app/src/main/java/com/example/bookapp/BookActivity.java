@@ -70,7 +70,9 @@ public class BookActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if (Utils.getInstance().addToAlreadyRead(book)) {
                         Toast.makeText(BookActivity.this, "Book Added", Toast.LENGTH_SHORT).show();
-                        // TODO: navigate the user
+
+                        Intent intent = new Intent(BookActivity.this, AlreadyReadBookActivity.class);
+                        startActivity(intent);
                     } else {
                         Toast.makeText(BookActivity.this, "Something went wrong, try again", Toast.LENGTH_SHORT).show();
                     }
