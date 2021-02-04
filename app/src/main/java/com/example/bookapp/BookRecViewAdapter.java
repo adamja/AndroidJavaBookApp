@@ -27,10 +27,13 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
 
     private ArrayList<Book> books = new ArrayList<>();
     private Context mContext;
+    private String parentActivity;
 
     // Constructor only contains mContext
-    public BookRecViewAdapter(Context mContext) {
+
+    public BookRecViewAdapter(Context mContext, String parentActivity) {
         this.mContext = mContext;
+        this.parentActivity = parentActivity;
     }
 
     // Books array list is set with the setter
@@ -72,6 +75,32 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
             TransitionManager.beginDelayedTransition(holder.parent);
             holder.expandedRelLayout.setVisibility(View.VISIBLE);
             holder.downArrow.setVisibility(View.GONE);
+
+            if (parentActivity.equals("allBooks")) {
+                holder.btnDelete.setVisibility(View.GONE);
+
+            } else if (parentActivity.equals("currentlyReading")) {
+
+            } else if (parentActivity.equals("alreadyRead")) {
+                holder.btnDelete.setVisibility(View.VISIBLE);
+                holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (Utils.getInstance().removeFromAlreadyRead(books.get(position))) {
+                            Toast.makeText(mContext, "Book removed", Toast.LENGTH_SHORT).show();
+                            notifyDataSetChanged();
+                        } else {
+                            Toast.makeText(mContext, "Something went wrong, please try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+            } else if (parentActivity.equals("wantToRead")) {
+
+
+            }else if (parentActivity.equals("favourite")) {
+
+            }
         } else {
             TransitionManager.beginDelayedTransition(holder.parent);
             holder.expandedRelLayout.setVisibility(View.GONE);
@@ -93,6 +122,8 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
         private RelativeLayout expandedRelLayout;
         private TextView txtAuthor, txtShortDesc;
 
+        private TextView btnDelete;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parent = itemView.findViewById(R.id.parent);
@@ -104,6 +135,8 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
             expandedRelLayout = itemView.findViewById(R.id.expandedRelLayout);
             txtAuthor = itemView.findViewById(R.id.txtAuthorItem);
             txtShortDesc = itemView.findViewById(R.id.txtShortDescItem);
+
+            btnDelete = itemView.findViewById(R.id.btnDelete);
 
             downArrow.setOnClickListener(new View.OnClickListener() {
                 @Override
