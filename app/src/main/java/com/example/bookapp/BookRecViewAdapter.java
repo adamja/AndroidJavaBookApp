@@ -1,6 +1,7 @@
 package com.example.bookapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,7 +56,8 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, books.get(position).getName() + " Selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, BookActivity.class);
+                mContext.startActivity(intent);
             }
         });
 
@@ -90,14 +92,14 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parent = itemView.findViewById(R.id.parent);
-            imgBook = itemView.findViewById(R.id.imgBook);
-            txtBookName = itemView.findViewById(R.id.txtBookName);
+            imgBook = itemView.findViewById(R.id.imgBookItem);
+            txtBookName = itemView.findViewById(R.id.txtBookNameItem);
 
             downArrow = itemView.findViewById(R.id.btnDownArrow);
             upArrow = itemView.findViewById(R.id.btnUpArrow);
             expandedRelLayout = itemView.findViewById(R.id.expandedRelLayout);
-            txtAuthor = itemView.findViewById(R.id.txtAuthor);
-            txtShortDesc = itemView.findViewById(R.id.txtShortDesc);
+            txtAuthor = itemView.findViewById(R.id.txtAuthorItem);
+            txtShortDesc = itemView.findViewById(R.id.txtShortDescItem);
 
             downArrow.setOnClickListener(new View.OnClickListener() {
                 @Override
