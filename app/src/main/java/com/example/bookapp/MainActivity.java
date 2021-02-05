@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Init the utils class when the app first starts up
-        Utils.getInstance();
+        Utils.getInstance(this);
     }
 
     private void initViews() {

@@ -19,7 +19,7 @@ public class WantToReadActivity extends AppCompatActivity {
         recView.setAdapter(adapter);
         recView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter.setBooks(Utils.getWantToReadBooks());
+        adapter.setBooks(Utils.getInstance(this).getWantToReadBooks());
     }
 
     @Override

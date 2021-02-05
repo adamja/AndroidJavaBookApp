@@ -91,8 +91,9 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
                         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                if (Utils.getInstance().removeFromCurrentlyReading((books.get(position)))) {
+                                if (Utils.getInstance(mContext).removeFromCurrentlyReading((books.get(position)))) {
                                     Toast.makeText(mContext, "Book Removed", Toast.LENGTH_SHORT).show();
+                                    // TODO: Add a callback interface for the delete before calling notifyDataSetChanged. Currently it is being called before the delete has processed
                                     notifyDataSetChanged();
                                 }
                             }
@@ -119,8 +120,9 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
                         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                if (Utils.getInstance().removeFromAlreadyRead((books.get(position)))) {
+                                if (Utils.getInstance(mContext).removeFromAlreadyRead((books.get(position)))) {
                                     Toast.makeText(mContext, "Book Removed", Toast.LENGTH_SHORT).show();
+                                    // TODO: Add a callback interface for the delete before calling notifyDataSetChanged. Currently it is being called before the delete has processed
                                     notifyDataSetChanged();
                                 }
                             }
@@ -147,8 +149,9 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
                         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                if (Utils.getInstance().removeFromWantToRead((books.get(position)))) {
+                                if (Utils.getInstance(mContext).removeFromWantToRead((books.get(position)))) {
                                     Toast.makeText(mContext, "Book Removed", Toast.LENGTH_SHORT).show();
+                                    // TODO: Add a callback interface for the delete before calling notifyDataSetChanged. Currently it is being called before the delete has processed
                                     notifyDataSetChanged();
                                 }
                             }
@@ -175,8 +178,9 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
                         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                if (Utils.getInstance().removeFromFavourites((books.get(position)))) {
+                                if (Utils.getInstance(mContext).removeFromFavourites((books.get(position)))) {
                                     Toast.makeText(mContext, "Book Removed", Toast.LENGTH_SHORT).show();
+                                    // TODO: Add a callback interface for the delete before calling notifyDataSetChanged. Currently it is being called before the delete has processed
                                     notifyDataSetChanged();
                                 }
                             }
