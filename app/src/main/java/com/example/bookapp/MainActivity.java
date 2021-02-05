@@ -1,11 +1,15 @@
 package com.example.bookapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import static com.example.bookapp.WebsiteActivity.URL_KEY;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +60,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, FavouriteActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle((getString(R.string.app_name)));
+                builder.setMessage("Designed and Developed with love by Adam at adamja.net\n\n" +
+                        "Check my website for more awesome applications");
+                builder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Leave blank
+                    }
+                });
+
+                builder.setPositiveButton("Visit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(MainActivity.this, WebsiteActivity.class);
+                        intent.putExtra(URL_KEY, "http://google.com/");
+                        startActivity(intent);
+                    }
+                });
+
+                builder.create().show();
             }
         });
 
